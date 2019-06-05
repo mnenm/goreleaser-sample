@@ -1,0 +1,28 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+server:
+  status: true
+  open: true
+  port: 5002
+  host: localhost
+schema:
+- name: realize-sample
+  path: .
+  commands:
+    install:
+      status: true
+      method: go build -o ~/go/bin/realize-sample
+    run:
+      status: true
+      method: ~/go/bin/realize-sample
+  watcher:
+    extensions:
+    - go
+    paths:
+    - /
+    ignored_paths:
+    - .git
+    - .realize
+    - vendor
